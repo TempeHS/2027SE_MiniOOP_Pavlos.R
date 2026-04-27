@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "/home/vscode/.vscode-remote/extensions/benpaddlejones.pico-bridge-2.1.4/emulator/mock/typings",
+        "/home/vscode/.vscode-remote/extensions/benpaddlejones.pico-bridge-2.1.4/emulator/mock/micropython"
+    ]
+}
