@@ -1,8 +1,5 @@
 # modules
-from machine import (
-    I2C,
-    Pin,
-)  # since I2C communication would be used, I2C class is imported
+from machine import I2C, Pin  # since I2C communication would be used, I2C  is imported
 from time import sleep
 
 # very important
