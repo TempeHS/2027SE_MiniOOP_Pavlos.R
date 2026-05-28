@@ -1,5 +1,5 @@
 from machine import Pin
-from time import sleep, time
+from time import sleep
 
 
 class Led_Light(Pin):
@@ -9,7 +9,6 @@ class Led_Light(Pin):
         self.__pin = pin
         self.__flashing = flashing
         self.led_light_state
-        self.__last_toggle_time = time()
 
     @property
     def led_light_state(self):
@@ -17,9 +16,9 @@ class Led_Light(Pin):
 
     @led_light_state.setter
     def led_light_state(self, value):
-        if value == 1:
+        if value == 0:
             self.off()
-        elif value == 0:
+        elif value == 1:
             self.on()
 
     def on(self):
@@ -39,8 +38,14 @@ class Led_Light(Pin):
         elif self.value() == 1:
             self.off()
 
-    def flash(self):
-        now = time()
-        if self.__flashing and now - self.__last_toggle_time >= 0.5:
-            self.toggle()
-            self.__last_toggle_time = now
+
+red_light = Led_Light(3, False, True)
+green_light = Led_Light(6, False, True)
+
+while True:
+    print(red_light.led_light_state)
+    red_light.led_light_state = 1
+    sleep(1)
+    print(red_light.led_light_state)
+    red_light.led_light_state = 0
+    sleep(1)

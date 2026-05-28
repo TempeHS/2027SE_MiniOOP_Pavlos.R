@@ -6,7 +6,7 @@ import uos
 from machine import Pin
 
 # File name of the script to import
-file_name = "I2C"
+file_name = "v06"
 
 SCRIPT_DIRECTORY = "/py_scripts"
 CONTEXT_RADIUS = 2
@@ -441,6 +441,8 @@ def handle_exception(title, error):
 
 # Import the v01.py script and setup exception handling
 try:
+    if file_name in sys.modules:
+        del sys.modules[file_name]
     __import__(file_name)
 except KeyboardInterrupt:
     print("KEYBOARD INTERRUPT")
